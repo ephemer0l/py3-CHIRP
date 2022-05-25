@@ -84,7 +84,7 @@ def command(ser, cmd, *args):
 
     result = ""
     while not result.endswith(LAST_DELIMITER[0]):
-        result += ser.read(COMMAND_RESP_BUFSIZE).decode()
+        result += ser.read(COMMAND_RESP_BUFSIZE).decode('latin-')
         if (time.time() - start) > 0.5:
             LOG.error("Timeout waiting for data")
             break
